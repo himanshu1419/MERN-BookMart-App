@@ -1,15 +1,17 @@
 import React from "react";
 import { FiShoppingCart } from "react-icons/fi";
+import { TiTick } from "react-icons/ti";
 import { useParams } from "react-router-dom";
 
 import { getImgUrl } from "../../utils/getImgUrl";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../redux/features/cart/cartSlice";
 import { useFetchBookByIdQuery } from "../../redux/features/books/booksApi";
 
 const SingleBook = () => {
   const { id } = useParams();
   const { data: book, isLoading, isError } = useFetchBookByIdQuery(id);
+  const cartItems = useSelector((state) => state.cart.cartItems);
 
   const dispatch = useDispatch();
 
@@ -52,8 +54,16 @@ const SingleBook = () => {
           onClick={() => handleAddToCart(book)}
           className="btn-primary px-6 space-x-1 flex items-center gap-1 "
         >
-          <FiShoppingCart className="" />
-          <span>Add to Cart</span>
+          {cartItems.some((item) => item._id === book._id) ? (
+            <>
+              {" "}
+              <TiTick size={24} /> Added To Cart
+            </>
+          ) : (
+            <>
+              <FiShoppingCart /> Add To Cart
+            </>
+          )}
         </button>
       </div>
     </div>

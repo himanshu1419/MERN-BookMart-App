@@ -45,7 +45,7 @@ const Recommened = () => {
         className="mySwiper"
       >
         {books.length > 0 &&
-          books.slice(8, 18).map((book, index) => (
+          books.filter(book => book.trending).map((book, index) => (
             <SwiperSlide key={index}>
               <BookCard book={book} />
             </SwiperSlide>

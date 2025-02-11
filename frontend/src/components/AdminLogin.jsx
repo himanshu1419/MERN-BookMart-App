@@ -1,43 +1,50 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import axios from 'axios';
-import getBaseUrl from '../utils/baseURL';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import getBaseUrl from "../utils/baseURL";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AdminLogin = () => {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     try {
-      // Make the POST request to authenticate the admin
+      // Make API call to authenticate admin
       const response = await axios.post(`${getBaseUrl()}/api/auth/admin`, data, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { "Content-Type": "application/json" },
       });
 
       const auth = response.data;
-      console.log('Response:', auth);
 
-      // Store the token in localStorage if present
+      // Store token and navigate if successful
       if (auth.token) {
-        localStorage.setItem('token', auth.token);
-
-        // Redirect to dashboard
-        alert('Admin Login successful!');
-        navigate('/dashboard');
+        localStorage.setItem("token", auth.token);
+        Swal.fire({
+          title: "Login Successful!",
+          text: "Welcome to the Admin Dashboard.",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/dashboard");
       }
     } catch (error) {
-      // Handle errors from the server
-      setMessage(error.response?.data?.message || 'An error occurred. Please try again.');
-      console.error('Error:', error);
+      // Handle server errors
+      const errorMsg = error.response?.data?.message || "An error occurred. Please try again.";
+      setMessage(errorMsg);
+
+      Swal.fire({
+        title: "Login Failed",
+        text: errorMsg,
+        icon: "error",
+      });
     }
   };
 
@@ -52,14 +59,13 @@ const AdminLogin = () => {
               Username
             </label>
             <input
-              {...register('username', { required: true })}
+              {...register("username", { required: "Username is required." })}
               type="text"
-              name="username"
               id="username"
               placeholder="Username"
               className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow"
             />
-            {errors.username && <p className="text-red-500 text-xs italic">Username is required.</p>}
+            {errors.username && <p className="text-red-500 text-xs italic">{errors.username.message}</p>}
           </div>
 
           <div className="mb-4">
@@ -67,26 +73,20 @@ const AdminLogin = () => {
               Password
             </label>
             <input
-              {...register('password', { required: true })}
+              {...register("password", { required: "Password is required." })}
               type="password"
-              name="password"
               id="password"
               placeholder="Password"
               className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow"
             />
-            {errors.password && <p className="text-red-500 text-xs italic">Password is required.</p>}
+            {errors.password && <p className="text-red-500 text-xs italic">{errors.password.message}</p>}
           </div>
 
           {message && <p className="text-red-500 text-xs italic mb-3">{message}</p>}
 
-          <div className="w-full">
-            <button
-              type="submit"
-              className="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-8 rounded focus:outline-none"
-            >
-              Login
-            </button>
-          </div>
+          <button type="submit" className="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none">
+            Login
+          </button>
         </form>
 
         <p className="mt-5 text-center text-gray-500 text-xs">©2025 Book Store. All rights reserved.</p>

@@ -1,4 +1,5 @@
 import React from "react";
+import Swal from "sweetalert2";
 import {
   useDeleteBookMutation,
   useFetchAllBooksQuery,
@@ -16,8 +17,13 @@ const ManageBooks = () => {
   const handleDeleteBook = async (id) => {
     try {
       await deleteBook(id).unwrap();
-      alert("Book deleted successfully!");
       refetch();
+      Swal.fire({
+              title: "Book deleted successfully",
+              icon: "success",
+              showConfirmButton: false,
+              timer: 1500
+            });
     } catch (error) {
       console.error("Failed to delete book:", error.message);
       alert("Failed to delete book. Please try again.");
