@@ -18,7 +18,7 @@ const BookCard = ({ book }) => {
   return (
     <div className=" rounded-lg transition-shadow duration-300 border-2 border-gray-300 shadow-xl">
       <div className="flex flex-col sm:flex-row sm:items-center sm:h-96  sm:justify-center gap-4">
-        <div className="sm:h-72 sm:flex-shrink-0 border rounded-md">
+        <div className="sm:h-72 sm:flex-shrink-0 rounded-md">
           <Link to={`/books/${book._id}`}>
             <img
               src={`${getImgUrl(book?.coverImage)}`}
@@ -47,15 +47,15 @@ const BookCard = ({ book }) => {
           </p>
           <button
             onClick={() => handleAddToCart(book)}
-            className=" w-full btn-primary  rounded-lg flex justify-center items-center gap-2  p-2 h-[40px]"
+            className=" w-full btn-primary  rounded-lg flex justify-center items-center gap-2 p-1 h-[40px]"
           >
             {cartItems.some((item) => item._id === book._id) ? (
-              <span>
+              <span className="h-[25px">
                 {" "}
                 <TiTick size={24} className="inline-block" /> Added To Cart{" "}
               </span>
             ) : (
-              <span>
+              <span className="h-[25px]">
                 <FiShoppingCart className="inline-block" /> Add To Cart
               </span>
             )}

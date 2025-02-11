@@ -21,19 +21,18 @@ const Login = () => {
     switch (errorCode) {
       case "auth/user-not-found":
         return "No account found with this email. Please register first!";
-    case "auth/invalid-credential":
+      case "auth/invalid-credential":
         return "Invalid email or password. Please try again.";
-    case "auth/invalid-email":
+      case "auth/invalid-email":
         return "Invalid email format. Please check your email.";
-    case "auth/network-request-failed":
+      case "auth/network-request-failed":
         return "Network error. Check your internet connection.";
-    case "auth/user-disabled":
+      case "auth/user-disabled":
         return "This account has been disabled. Contact support.";
-    default:
+      default:
         return "Login failed. Please try again.";
     }
-};
-
+  };
 
   // Handle Login
   const onSubmit = async (data) => {
@@ -42,7 +41,7 @@ const Login = () => {
       toast.success("Login successful! Redirecting...", { autoClose: 2000 });
       setTimeout(() => navigate("/"), 2500);
     } catch (error) {
-       toast.error(getErrorMessage(error.code));
+      toast.error(getErrorMessage(error.code));
       console.error(error);
     }
   };
@@ -61,7 +60,7 @@ const Login = () => {
 
   return (
     <div className="h-[calc(100vh-120px)] flex justify-center items-center">
-      <div className="w-full max-w-sm mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div className="w-full max-w-sm mx-auto bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4">
         <h2 className="text-xl font-semibold mb-4">Please Login</h2>
 
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -125,7 +124,7 @@ const Login = () => {
         <div className="mt-4">
           <button
             onClick={handleGoogleSignIn}
-            className="w-full flex flex-wrap gap-1 items-center justify-center bg-secondary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none"
+            className="w-full flex flex-wrap gap-1 items-center justify-center bg-[#1A1A40] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none"
           >
             <FaGoogle className="mr-2" />
             Sign in with Google

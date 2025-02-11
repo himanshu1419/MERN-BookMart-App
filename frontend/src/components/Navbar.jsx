@@ -103,7 +103,7 @@ const Navbar = () => {
                 )}
               </>
             ) : token ? (
-              <Link to="/dashboard" className="border-b-2 border-primary ">
+              <Link to="/dashboard" className="border-b-2 border-[#FFCE1A] ">
                 Dashboard
               </Link>
             ) : (
@@ -116,7 +116,7 @@ const Navbar = () => {
 
           <Link
             to="/cart"
-            className="bg-primary p-1 sm:px-6 px-2 flex items-center rounded-sm hover:bg-yellow-500"
+            className="bg-[#FFCE1A] p-1 sm:px-6 px-2 flex items-center rounded-sm hover:bg-yellow-500"
           >
             <HiOutlineShoppingCart className="" />
             {cartItems.length > 0 ? (

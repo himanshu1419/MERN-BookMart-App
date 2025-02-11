@@ -1,12 +1,18 @@
 import React from 'react'
-import { Navigate, Outlet } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext'
+import { Navigate } from 'react-router-dom'
 
-const AdminRoute = ({children}) => {
-  const token = localStorage.getItem('token');
-  if(!token) {
-    return <Navigate to="/admin"/>
-  }
-  return children ?  children : <Outlet/>;
+const PrivateRoute = ({children}) => {
+    const {currentUser, loading} = useAuth();
+
+    if(loading) {
+        return <div>Loading..</div>
+    }
+    if(currentUser) {
+        return children;
+    }
+  
+    return <Navigate to="/login" replace/>
 }
 
-export default AdminRoute
+export default PrivateRoute

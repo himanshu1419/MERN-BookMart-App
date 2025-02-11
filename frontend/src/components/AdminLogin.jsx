@@ -63,7 +63,7 @@ const AdminLogin = () => {
               type="text"
               id="username"
               placeholder="Username"
-              className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow"
+              className="shadow-md rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow"
             />
             {errors.username && <p className="text-red-500 text-xs italic">{errors.username.message}</p>}
           </div>
@@ -77,7 +77,7 @@ const AdminLogin = () => {
               type="password"
               id="password"
               placeholder="Password"
-              className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow"
+              className="shadow-md rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow"
             />
             {errors.password && <p className="text-red-500 text-xs italic">{errors.password.message}</p>}
           </div>

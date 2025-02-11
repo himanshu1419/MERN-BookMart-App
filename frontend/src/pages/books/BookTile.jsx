@@ -15,7 +15,7 @@ const BookTile = ({ book }) => {
   };
 
   return (
-    <div className="w-full md:w-[230px] lg:w-[250px] p-4 border rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow">
+    <div className="w-full md:w-[230px] lg:w-[250px] p-4  rounded-lg shadow-xl bg-white hover:shadow-lg transition-shadow">
       <Link to={`/books/${book._id}`} className="block">
         <img
           src={getImgUrl(book?.coverImage)}

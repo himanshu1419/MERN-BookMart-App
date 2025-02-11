@@ -12,10 +12,10 @@ const Footer = () => {
         <div className="md:w-1/2 w-full">
           <img src={footerLogo} alt="Logo" className="mb-5 w-36" />
           <ul className="flex flex-col md:flex-row gap-4">
-            <li><a href="#home" className="hover:text-primary">Home</a></li>
-            <li><a href="#services" className="hover:text-primary">Services</a></li>
-            <li><a href="#about" className="hover:text-primary">About Us</a></li>
-            <li><a href="#contact" className="hover:text-primary">Contact</a></li>
+            <li><a href="#home" className="hover:text-yellow-500">Home</a></li>
+            <li><a href="#services" className="hover:text-yellow-500">Services</a></li>
+            <li><a href="#about" className="hover:text-yellow-500">About Us</a></li>
+            <li><a href="#contact" className="hover:text-yellow-500">Contact</a></li>
           </ul>
         </div>
 
@@ -28,9 +28,9 @@ const Footer = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full px-4 py-2 rounded-l-md text-black"
+              className="w-full px-4 py-2 rounded-l-md bg-white text-black outline-none"
             />
-            <button className="bg-primary px-6 py-2 rounded-r-md hover:bg-primary-dark">
+            <button className="bg-[#FFCE1A] text-black px-6 py-2 rounded-r-md hover:bg-yellow-600">
               Subscribe
             </button>
           </div>
@@ -41,19 +41,19 @@ const Footer = () => {
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center mt-10 border-t border-gray-700 pt-6">
         {/* Left Side - Privacy Links */}
         <ul className="flex gap-6 mb-4 md:mb-0">
-          <li><a href="#privacy" className="hover:text-primary">Privacy Policy</a></li>
-          <li><a href="#terms" className="hover:text-primary">Terms of Service</a></li>
+          <li><a href="#privacy" className="hover:text-yellow-500">Privacy Policy</a></li>
+          <li><a href="#terms" className="hover:text-yellow-500">Terms of Service</a></li>
         </ul>
 
         {/* Right Side - Social Icons */}
         <div className="flex gap-6">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-500">
             <FaFacebook size={24} />
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-500">
             <FaTwitter size={24} />
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-500">
             <FaInstagram size={24} />
           </a>
         </div>

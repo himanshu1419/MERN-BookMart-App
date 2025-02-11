@@ -124,7 +124,7 @@ const AddBook = () => {
             type="file"
             accept="image/*"
             onChange={handleFileChange}
-            className="mb-2 w-full"
+            className="mb-2 w-full bg-gray-100"
           />
           {imageFileName && (
             <p className="text-sm text-gray-500">Selected: {imageFileName}</p>

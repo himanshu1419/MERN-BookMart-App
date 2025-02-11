@@ -20,8 +20,8 @@ const OrderPage = () => {
       ) : (
         <div>
           {orders.map((order, index) => (
-            <div key={order._id} className="border-b mb-4 pb-4">
-              <p className="p-1 bg-secondary text-white w-10 rounded mb-1">
+            <div key={order._id} className="shadow-lg mb-4 p-4">
+              <p className="p-1 bg-[#1A1A40] text-white w-10 rounded mb-1">
                 # {index + 1}
               </p>
               <h2 className="font-bold">Order ID: {order._id}</h2>
