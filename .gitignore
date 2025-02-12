@@ -1,5 +1,10 @@
 # Dependencies
 /node_modules
+<<<<<<< HEAD
+=======
+frontend/node_modules/
+backend/node_modules/
+>>>>>>> f9bfc89 (Removed backend and frontend from Git tracking)
 
 # Build Output
 /build
@@ -7,7 +12,12 @@
 
 # Environment Variables
 .env
+<<<<<<< HEAD
 .env.local
+=======
+frontend/.env.local
+backend/.env
+>>>>>>> f9bfc89 (Removed backend and frontend from Git tracking)
 .env.development
 .env.production
 .env.test
@@ -32,5 +42,10 @@ ehthumbs.db
 
 # Firebase 
 firebase-debug.log
+<<<<<<< HEAD
 firebase.json
 firebase.config.js
+=======
+frontend/src/firebase/firebase.config.js
+
+>>>>>>> f9bfc89 (Removed backend and frontend from Git tracking)
